@@ -1,0 +1,233 @@
+.section {
+  padding: 12vh 0;
+  &.dark {
+    background: var(--text-black);
+  }
+}
+.container {
+  &.section-service {
+    max-width: 800px;
+  }
+  h1 {
+    max-width: 600px;
+  }
+  .content:first-child {
+    width: 60%;
+    min-height: 400px;
+    max-height: 50vh;
+    div {
+      width: 100%;
+      gap: 30px;
+    }
+  }
+  .content:last-child {
+    align-self: flex-end;
+  }
+  .service-card {
+    padding: 50px 0;
+    p {
+      max-width: 300px;
+      opacity: 0.8;
+    }
+  }
+  .btn-section {
+    width: 100%;
+  }
+  .big-img {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    .tile-card {
+      padding: 15px;
+      max-width: 300px;
+      position: absolute;
+      right: 20px;
+      bottom: 30px;
+      border-radius: 30px;
+      gap: 10px;
+      background: rgba($color: #000000, $alpha: 0.35);
+      // box-shadow: 0 0 15px rgba($color: #000000, $alpha: .21);
+      img {
+        position: absolute;
+        right: -40px;
+        top: -55px;
+        height: 120%;
+        object-fit: contain;
+        z-index: 2;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      p,
+      .progress {
+        position: relative;
+        z-index: 2;
+        width: 75%;
+      }
+    }
+    background: linear-gradient(
+      -45deg,
+      var(--primary-color),
+      var(--secondary-color),
+      var(--primary-color)
+    );
+    .progress {
+      border-radius: 10px;
+      height: 5px;
+      background: rgba($color: #ffffff, $alpha: 0.7);
+      position: relative;
+      &:before {
+        content: "";
+        width: 50%;
+        position: absolute;
+        height: 100%;
+        border-radius: 10px;
+        background-color: var(--secondary-color);
+      }
+    }
+  }
+  .chat-section {
+    margin-top: 5vh;
+    position: relative;
+    max-width: 900px;
+    min-height: 500px;
+    .chats {
+      background: url(../../../assets/mockup.png) no-repeat;
+      background-position: 100% 0%;
+      position: absolute;
+      right: 20px;
+      top: 50px;
+      width: clamp(300px, 50vh, 500px);
+      height: clamp(300px, 50vh, 500px);
+      .content-block {
+        width: 100%;
+        height: 100%;
+        margin: 10px;
+        .item {
+          position: absolute;
+          top: 80px;
+          left: 20%;
+          height: 70%;
+          &.active {
+            animation: appear 350ms cubic-bezier(0.445, 0.05, 0.55, 0.95) both;
+          }
+          animation: disappear 350ms cubic-bezier(0.445, 0.05, 0.55, 0.95) both;
+        }
+        .user {
+          align-self: center;
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: solid 2px var(--secondary-color);
+          }
+        }
+        .message {
+          padding: 15px;
+          border-radius: 20px;
+          background: var(--secondary-color);
+          max-width: 250px;
+          color: var(--text-white);
+        }
+      }
+      .arrows {
+        gap: 20px;
+        .prev,.next, .indicators .item {
+            background: #e5e5e5;
+        }
+        .indicators {
+            gap: 5px;
+            .item {
+                width: 6px;
+                height: 6px;
+                border-radius: 3px;
+                &.active {
+                    width: 24px;
+                    background: var(--secondary-color);
+                }
+            }
+        }
+        .prev, .next {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+      }
+    }
+    .mini-logo {
+      width: clamp(100px, 9vw, 200px);
+      height: clamp(100px, 9vw, 200px);
+      border-radius: 50%;
+      right: 0;
+      position: absolute;
+      background: var(--secondary-color);
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -20%;
+      }
+    }
+  }
+}
+.separator {
+  width: 100%;
+  height: 1px;
+  background: var(--text-gray);
+}
+.partenaire {
+  img {
+    border-radius: 15px;
+  }
+}
+.pt-3 {
+  margin-top: 40px;
+}
+.card-temoin {
+  border-radius: 20px;
+  box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.2);
+  padding: 15px;
+  max-width: 300px;
+  height: 200px;
+  &.active {
+    background: var(--text-black);
+    color: #ffffff;
+  }
+  div:first-child {
+    height: 100%;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba($color: #000000, $alpha: 0.2);
+    margin-right: 20px;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}

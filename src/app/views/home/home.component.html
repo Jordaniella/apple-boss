@@ -1,0 +1,143 @@
+<main class="main">
+  <app-header [color]="current.color"/>
+  <app-landing (changeImageEmitter)="changeColor($event)" />
+  <section class="section">
+    <div class="container d-flex">
+      <div class="content is-column d-flex d-flex-between">
+        <h1 class="title">L'univers Apple à portée de main</h1>
+        <div class="d-flex">
+          <app-card [title]="'Diagnostic & assistance'" />
+          <app-card [title]="'Support Apple'" />
+        </div>
+      </div>
+      <div class="content {{ current.color }}">
+        <app-card [title]="'Blog'" [image]="current.image[0]" />
+      </div>
+    </div>
+  </section>
+  <section class="section dark">
+    <div class="container is-column d-flex d-flex-between section-service">
+      <h4 class="gray-color">
+        Vous pensiez que la pomme ne tombait jamais loin de l'arbre ?
+      </h4>
+      <h1 class="white title">Une assistance adaptée à chaque projet</h1>
+      <div class="mini-separator"></div>
+      <div class="separator"></div>
+      @for (item of allServices; track $index) {
+      <div class="d-flex d-flex-between service-card">
+        <h3 class="white center-block">{{ item.title }}</h3>
+        <p class="white">{{ item.desc }}</p>
+      </div>
+      <div class="separator"></div>
+      }
+      <div class="mini-separator"></div>
+      <div class="center-block btn-section">
+        <button class="btn btn--secondary is-glass">
+          On en discute ? <span class="point"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-column d-flex d-flex-between">
+      <h4 class="gray-color">
+        Vous pensiez que la pomme ne tombait jamais loin de l'arbre ?
+      </h4>
+      <h1 class="title">Installation et configuration sécurisé</h1>
+      <button class="btn btn--primary is-glass">
+        Parlons ? <span class="point"></span>
+      </button>
+      <div class="mini-separator"></div>
+      <div class="big-img {{ current.color }}">
+        <img [src]="current.image[0]" alt="{{ current.title }}" />
+        <div class="tile-card is-glass d-flex d-flex-between is-column">
+          <p class="white">
+            <span class="primary-color">19 mins</span> restantes
+          </p>
+          <p class="white">Votre installation est bientôt prête !</p>
+          <div class="progress"></div>
+          <div class="end"></div>
+          <img [src]="current.image[1]" alt="{{ current.title }}" />
+        </div>
+      </div>
+      <div class="mini-separator"></div>
+      <div class="partenaire d-flex d-flex-between align-center">
+        <p>La confiance des leaders</p>
+        @for (item of allPartenaire; track $index) {
+        <img [src]="item" alt="Partenaire de Apple Boss" />
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-column d-flex d-flex-between">
+      <h4 class="gray-color">Parce qu'ici...</h4>
+      <h1 class="title">on ne se contente pas de suivre la pomme</h1>
+      <div class="mini-separator"></div>
+      <div class="d-flex d-flex-between">
+        @for (item of temoignage; track $index) {
+        <div class="card-temoin" [ngClass]="{ active: $index == 1 }">
+          <div class="d-flex d-flex-between is-column align-start">
+            <h4>{{ item.message }}</h4>
+            <div class="center-block">
+              <img src="../../../assets/lion1.png" alt="" />
+              <div class="details d-flex d-flex-between is-column">
+                <p>{{ item.username }}</p>
+                <p class="gray-color">{{ item.dateTime }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="center-block btn-section pt-3">
+        <button class="btn btn--primary">
+          allons-y ? <span class="point"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-column d-flex d-flex-between">
+      <h4 class="gray-color">La preuve de notre engagement</h4>
+      <h1 class="title">Ce que nos clients pensent de nous</h1>
+      <div class="chat-section {{ current.color }}">
+        <div class="mini-logo">
+          <img [src]="current.image[1]" alt="Apple boss charater" />
+        </div>
+        <div class="chats">
+          <div class="content-block">
+            @for (item of temoignage; track $index) {
+            <div class="item is-column d-flex d-flex-between align-start" [ngClass]="{'active': item == currentChat}">
+              <div class="user">
+                <div class="center-block is-column">
+                  <img
+                    src="../../../../assets/avatar.png"
+                    alt="Avatar de Apple boss"
+                  />
+                  <p class="gray">{{ item.username }}</p>
+                  <p>Spintank</p>
+                </div>
+              </div>
+              <div class="message">
+                <p>{{ item.message }}</p>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="arrows center-block">
+              <div class="prev center-block" (click)="getPrev(currentChat)">{{'<'}}</div>
+              <div class="indicators center-block">
+                  @for (item of temoignage; track $index) {
+                      <div class="item" [ngClass]="{'active':item == currentChat}"></div>
+                  }
+              </div>
+              <div class="next center-block" (click)="getNext(currentChat)">{{'>'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer [color]="current.color" />
+</main>

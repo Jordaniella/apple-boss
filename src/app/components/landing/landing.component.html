@@ -1,0 +1,36 @@
+<section class="section landing {{ currentImage.color }}">
+  <div class="mini-separator"></div>
+  <div class="container d-flex d-flex-between">
+    <div class="content d-flex-between d-flex is-column">
+      <h1 class="title white">Créateur d'Expériences Apple</h1>
+      <div class="card is-glass center-block is-column">
+        <img [src]="currentImage.image" alt="" />
+        <div class="play-btn is-glass center-block"></div>
+        <p class="white">Comment ça marche ?</p>
+      </div>
+      <p class="white">
+        Nous sommes les architectes de l'univers Apple, repoussant les limites
+        pour que chaque client vive une expérience aussi fluide que de
+        déverrouiller un MacBook du bout des doigts.
+      </p>
+      <div class="mini-separator"></div>
+    </div>
+    <div class="content d-flex-between d-flex align-end ">
+      <img class="img-landing" [src]="currentImage.image" alt="Apple boss image landing page" />
+      <div class="landing-carousel center-block">
+        @for (item of imgUrlList; track $index) {
+        <div
+          class="center-block is-column item"
+          [ngClass]="{ active: checkImageActive(item) }"
+          (click)="changeImage($index)"
+        >
+          <div class="item-image">
+            <img [src]="item.image" alt="Apple boss image landing page list" />
+          </div>
+          <p class="white">{{ item.title }}</p>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

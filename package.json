@@ -22,6 +22,10 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
+  "resolutions": {
+    "wrap-ansi": "7.0.0",
+    "string-width": "4.1.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.1.4",
     "@angular/cli": "^18.1.4",

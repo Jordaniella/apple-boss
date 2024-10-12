@@ -1,0 +1,22 @@
+<nav class="nav {{color}}" [ngClass]="{'active':isActive}">
+    <div class="container d-flex-between d-flex align-center">
+        <div class="nav__content d-flex align-start nav__content--logo">
+            <div class="center-block">
+                <img src="../../../assets/logo.png" alt="Logo apple boss">
+                <span class="logo">Apple.boss</span>
+            </div>
+        </div>
+        <div class="nav__content nav__content--menu">
+            <ul class="menu__item center-block">
+                <li routerLink="/services" routerLinkactive is-glass="{'active is-glass'}"><a class="item__link white">Services</a></li>
+                <li routerLink="/about" routerLinkactive is-glass="{'active is-glass'}"><a class="item__link white">À propos de nous</a></li>
+                <li routerLink="/project" routerLinkactive is-glass="{'active is-glass'}"><a class="item__link white">Projets</a></li>
+                <li routerLink="/ressources" routerLinkactive is-glass="{'active is-glass'}"><a class="item__link white">Ressources</a></li>
+                <li routerLink="/temoignage" routerLinkactive is-glass="{'active is-glass'}"><a class="item__link white">Témoignages</a></li>
+            </ul>
+        </div>
+        <div class="nav__content-btn">
+            <a routerLink="" class="btn btn--primary"><span class="text">Let's </span>chat<span class="point"></span></a>
+        </div>
+    </div>
+</nav>

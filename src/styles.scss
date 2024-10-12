@@ -1,1 +1,171 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #b63903;
+  --secondary-color: #e16413;
+  --text-black: #0a0a0a;
+  --text-gray:gray;
+  --text-white:white;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "poppins-bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+}
+
+.normal {
+  --primary-color: #b63903;
+  --secondary-color: #e16413;
+}
+.gray {
+  --primary-color: #6d6d6d;
+  --secondary-color: #ebebeb;
+  .title,p.white {
+      color: var(--text-black);
+  }
+}
+.yellow {
+  --primary-color: #b66203;
+  --secondary-color: #e1b113;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins";
+  overflow-x: hidden;
+}
+.center-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1350px;
+}
+.main {
+    width: 100vw;
+    height: 100vh;
+}
+ul li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.d-flex-between {
+  justify-content: space-between;
+}
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-center {
+  align-items: center;
+}
+.section {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.white {
+  color: var(--text-white);
+}
+.gray-color {
+  color: var(--text-gray);
+}
+.primary-color {
+  color: var(--secondary-color);
+}
+.is-glass {
+  background: rgba(255, 255, 255, 0.25);
+  // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  // border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.is-column {
+  flex-direction: column;
+}
+.title {
+  font-size: clamp(3rem, 7vw, 4rem);
+  font-family: "poppins";
+  letter-spacing: -1px;
+}
+.logo {
+  color: var(--text-white);
+  font-size: 1.2rem;
+}
+.btn {
+    margin: 1.5rem 2rem;
+    height: 35px;
+    border-radius: 30px;
+    border: none;
+    text-decoration: none;
+    color: var(--text-white);
+}
+.btn--secondary {
+  gap: 8px;
+  width: clamp(80px,100%,150px);
+  .point {
+    background: var(--secondary-color);
+    &:before {
+      border: 1px var(--secondary-color) solid;
+    }
+  }
+}
+.btn--primary, .btn--secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  .point {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      &:before {
+        content: "";
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: -50%;
+        left: -50%;
+      }
+  }
+}
+.btn--primary {
+    width: clamp(80px,100%,120px);
+    .text {
+        color: var(--text-gray);
+    }
+    .point {
+      background: var(--text-white);
+      &:before {
+        border: 1px var(--text-white) solid;
+      }
+    }
+    background: #000;
+    position: relative;
+    &::after {
+        content: "";
+    }
+}
+.mini-separator {
+  min-height: 15vh;
+}

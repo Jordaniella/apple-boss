@@ -1,0 +1,8 @@
+
+<div class="card d-flex d-flex-between align-start" [ngClass]="{'no-pad':image !=''}">
+    @if (image != "") {
+        <img [src]="image" [alt]="title" class="img-top"/>
+    }
+    <h3>{{title}}</h3>
+    <span class="icone center-block"[ngClass]="{'light':image !=''}">&#8631;</span>
+</div>
